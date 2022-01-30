@@ -1,5 +1,6 @@
 package bg.springboot5.taskmanagementsystem.model;
 
+import bg.springboot5.taskmanagementsystem.enums.Position;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.Builder;
 
@@ -15,11 +16,12 @@ public class User {
     @Column(name = "name")
     String name;
     @Column(name = "position")
-    String position;
+    Position position;
     @Column(name = "password")
     String password;
     @Column(name = "email")
     String email;
+
 
     public long getId() {
         return id;
@@ -37,11 +39,11 @@ public class User {
         this.name = name;
     }
 
-    public String getPosition() {
+    public  Position getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 

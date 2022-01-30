@@ -1,5 +1,6 @@
 package bg.springboot5.taskmanagementsystem.service;
 
+import bg.springboot5.taskmanagementsystem.model.Task;
 import bg.springboot5.taskmanagementsystem.model.User;
 
 import java.util.List;

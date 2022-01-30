@@ -1,13 +1,12 @@
 package bg.springboot5.taskmanagementsystem.service.impl;
 
+import bg.springboot5.taskmanagementsystem.model.Task;
 import bg.springboot5.taskmanagementsystem.model.User;
 import bg.springboot5.taskmanagementsystem.repository.UserRepository;
 import bg.springboot5.taskmanagementsystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-
-import java.awt.*;
 
 @Service
 public class UserServiceImpl implements UserService {
