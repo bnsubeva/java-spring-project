@@ -1,66 +1,40 @@
 package bg.springboot5.taskmanagementsystem.model;
 
 import bg.springboot5.taskmanagementsystem.enums.Position;
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
-
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+@Getter
+@Setter
 @Entity
 @Table(name = "users")
 @Builder
 public class User {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private Long id;
-    @Column(name = "name")
-    String name;
-    @Column(name = "position")
+    private Long userId;
+
+    @Column
+    String userName;
+
+    @Column
     Position position;
-    @Column(name = "password")
+
+    @Column
     String password;
-    @Column(name = "email")
+
+    @Column
     String email;
 
+    @OneToMany(targetEntity=Task.class, mappedBy="assignedTo",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    Set<Task> tasks=new HashSet<>();
 
-    public long getId() {
-        return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public  Position getPosition() {
-        return position;
-    }
-
-    public void setPosition(Position position) {
-        this.position = position;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-}

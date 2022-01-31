@@ -6,9 +6,11 @@ import bg.springboot5.taskmanagementsystem.repository.TaskRepository;
 import bg.springboot5.taskmanagementsystem.repository.UserRepository;
 import bg.springboot5.taskmanagementsystem.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TaskServiceImpl implements TaskService {
 
     private final TaskRepository taskRepository;
