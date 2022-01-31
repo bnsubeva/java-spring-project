@@ -1,5 +1,6 @@
 package bg.springboot5.taskmanagementsystem.model;
 
+import bg.springboot5.taskmanagementsystem.enums.Priority;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,7 +37,6 @@ public class Task {
     String status;
 
     @Column
-    int priority;
-
+    Priority priority;
 
 }
