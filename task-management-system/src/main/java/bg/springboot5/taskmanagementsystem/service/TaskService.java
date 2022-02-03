@@ -10,11 +10,11 @@ public  interface TaskService {
 
     Task addTask(Task task);
 
-    Task getTaskById(Long task_id);
+    Task getTaskById(Long taskId);
 
-    Task getTaskByUserId(Long user_id);
+    Task getTaskByUserId(Long userId);
 
     Task updateTask(Task task);
 
-    void deleteTaskById(Long id);
+    void deleteTaskById(Long taskId);
 }

@@ -35,6 +35,15 @@ public class User {
     @OneToMany(targetEntity=Task.class, mappedBy="assignedTo",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     Set<Task> tasks=new HashSet<>();
 
+    @OneToOne(optional = true)
+    @JoinColumn
+    Product productOwn;
+
+    @ManyToOne
+    @JoinColumn(name="product_develops_name")
+    Product productDevelops;
+
+
     }
 
 

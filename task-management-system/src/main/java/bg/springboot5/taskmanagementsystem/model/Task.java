@@ -27,7 +27,7 @@ public class Task {
     User assignedTo;
 
     @ManyToOne
-    @JoinColumn(name="assigned_for_name")
+    @JoinColumn(name="assigned_from_name")
     User assignedFrom;
 
     @Column
