@@ -18,8 +18,8 @@ public class UserController {
     }
 
     @GetMapping
-    public User getUsers() {
-        return User.builder().userName("Bella").userId(29393939L).build();
+    public String getUsers() {
+        return "asd";
     }
 
 }
