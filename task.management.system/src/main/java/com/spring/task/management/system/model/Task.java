@@ -1,6 +1,5 @@
 package com.spring.task.management.system.model;
 
-import bg.springboot5.taskmanagementsystem.enums.Priority;
 import com.spring.task.management.system.enums.Priority;
 import lombok.Builder;
 import lombok.Getter;
