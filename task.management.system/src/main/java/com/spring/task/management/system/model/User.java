@@ -1,6 +1,7 @@
 package com.spring.task.management.system.model;
 
 import bg.springboot5.taskmanagementsystem.enums.Position;
+import com.spring.task.management.system.enums.Position;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NonNull;
@@ -56,6 +57,11 @@ public class User {
     @JoinColumn
     private Product productOwn;
 
+    @Column
+    @NonNull
+    @NotNull
+    private Position role;
+
     @ManyToOne
     @JoinColumn(name="product_develops_name")
     private Product productDevelops;
@@ -69,6 +75,10 @@ public class User {
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime modified;
+
+    public boolean isInRole(String role) {
+        return this.role.getName().equals(role);
+    }
 
 }
 

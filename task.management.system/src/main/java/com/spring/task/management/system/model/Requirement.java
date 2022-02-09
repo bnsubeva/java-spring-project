@@ -1,4 +1,5 @@
 package com.spring.task.management.system.model;
+
 import lombok.*;
 
 import javax.persistence.*;

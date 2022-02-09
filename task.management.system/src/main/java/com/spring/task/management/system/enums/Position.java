@@ -1,4 +1,4 @@
-package bg.springboot5.taskmanagementsystem.enums;
+package com.spring.task.management.system.enums;
 
 public enum Position {
 
