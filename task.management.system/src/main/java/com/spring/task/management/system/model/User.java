@@ -1,6 +1,5 @@
 package com.spring.task.management.system.model;
 
-import bg.springboot5.taskmanagementsystem.enums.Position;
 import com.spring.task.management.system.enums.Position;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,9 +12,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Getter
