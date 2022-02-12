@@ -5,10 +5,12 @@ import com.spring.task.management.system.repository.UserRepository;
 import com.spring.task.management.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
@@ -22,12 +24,17 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllUsers() { return userRepository.findAll(); }
 
     @Override
+    public User getByUsername(String username) {
+        return null;
+    }
+
+    @Override
     public User addUser(User user) {
         return userRepository.save(user);
     }
 
     @Override
-    public User getUserById(Long userId) {
+    public User login(Long userId) {
         return userRepository.findById(userId).get();
     }
 
