@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/menu :: common-header"/>
+<body>
+<div th:replace="fragments/menu :: common-navigation">&nbsp;</div>
+<div class="container">
+    <!--  Handle the flash message
+    <th:block th:if="${message != null}">
+        <div th:replace="fragments/alert :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
+    </th:block>
+    -->
+    <p>
+        Welcome to the Spring MVC Quickstart application!
+    </p>
+</div>
+</body>
+</html>
