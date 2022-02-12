@@ -12,6 +12,7 @@ import java.util.List;
 @Service
 @Transactional
 public class RequirementServiceImpl implements RequirementService {
+
     private final RequirementRepository requirementRepository;
 
     @Autowired

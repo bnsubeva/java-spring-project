@@ -1,5 +1,6 @@
 package com.spring.task.management.system.service.impl;
 
+import com.spring.task.management.system.exception.EntityNotFoundException;
 import com.spring.task.management.system.model.Product;
 import com.spring.task.management.system.repository.ProductRepository;
 import com.spring.task.management.system.service.ProductService;
@@ -31,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProductByProductId(Long productId) {
-        return productRepository.findById(productId).get();
+        return productRepository.findById(productId).orElseThrow(EntityNotFoundException::new);
     }
 
     @Override

@@ -28,7 +28,7 @@ public class Product {
     private User productOwner;
 
     @OneToMany(targetEntity = User.class, mappedBy="productDevelops",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<User> tasks;
+    private Set<Task> tasks;
 
     @OneToMany(targetEntity = Requirement.class, mappedBy = "product",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Requirement> requirements;

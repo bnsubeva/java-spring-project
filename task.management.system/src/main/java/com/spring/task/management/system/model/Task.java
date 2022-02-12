@@ -47,12 +47,16 @@ public class Task {
     private Priority priority;
 
     @OneToOne(optional = false)
-    @JoinColumn
+    @JoinColumn(name = "task_result")
     private TaskResult taskResult;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name="sprint_name")
     private Sprint sprint;
+
+    @ManyToOne
+    @JoinColumn(name="product_name")
+    private Product product;
 
     @ManyToOne
     @JoinColumn(name="assigned_to_name")
