@@ -1,6 +1,7 @@
 package com.spring.task.management.system.model;
 
 import com.spring.task.management.system.enums.Priority;
+import com.spring.task.management.system.enums.Status;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NonNull;
@@ -36,7 +37,7 @@ public class Task {
 
     @NotNull
     @NonNull
-    private String status;
+    private Status status;
 
     @NonNull
     private Priority priority;

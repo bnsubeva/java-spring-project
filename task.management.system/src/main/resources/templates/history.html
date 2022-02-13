@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/menu :: common-header">
+    <title>History</title>
+</head>
+<div th:replace="fragments/menu :: common-navigation">&nbsp;</div>
+<body>
+<div class="container">
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl-tasks">Tasks</button>
+
+    <div class="modal fade bd-example-modal-xl-tasks" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <h1>Tasks</h1>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl-sprints">Sprints</button>
+
+    <div class="modal fade bd-example-modal-xl-sprints" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <h1>Sprints</h1>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl-products">Products</button>
+
+    <div class="modal fade bd-example-modal-xl-products" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <h1>Products</h1>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
