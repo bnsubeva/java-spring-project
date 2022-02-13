@@ -18,52 +18,43 @@ import javax.validation.constraints.Size;
 public class Task {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy =  GenerationType.SEQUENCE)
     private Long taskId;
 
-    @Column
     @NotNull
     @NonNull
     private String taskName;
 
-    @Column
     @NotNull
     @NonNull
     private String type;
 
-    @Column
     @NotNull
     @NonNull
     @Size(min = 10, max = 2048, message = "Description must be between 10 and 2048 characters long")
     private String description;
 
-    @Column
     @NotNull
     @NonNull
     private String status;
 
-    @Column
     @NonNull
     private Priority priority;
 
-    @OneToOne(optional = false)
-    @JoinColumn(name = "task_result")
+    @OneToOne( optional = false, orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.ALL )
+    @JoinColumn(name = "task_result_id")
     private TaskResult taskResult;
 
     @ManyToOne
-    @JoinColumn(name="sprint_name")
     private Sprint sprint;
 
     @ManyToOne
-    @JoinColumn(name="product_name")
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name="assigned_to_name")
     private User assignedTo;
 
     @ManyToOne
-    @JoinColumn(name="assigned_from_name")
     private User assignedFrom;
 
 }

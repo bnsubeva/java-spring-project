@@ -1050,173 +1050,390 @@
     </user>
     <table id="335" parent="11" name="products"/>
     <table id="336" parent="11" name="requirements"/>
-    <table id="337" parent="11" name="tasks"/>
-    <table id="338" parent="11" name="users"/>
-    <column id="339" parent="335" name="product_id">
+    <table id="337" parent="11" name="sprint_results"/>
+    <table id="338" parent="11" name="sprints"/>
+    <table id="339" parent="11" name="task_results"/>
+    <table id="340" parent="11" name="tasks"/>
+    <table id="341" parent="11" name="teams"/>
+    <table id="342" parent="11" name="users"/>
+    <column id="343" parent="335" name="product_id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="340" parent="335" name="product_name">
+    <column id="344" parent="335" name="product_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="341" parent="335" name="product_owner_id">
+    <column id="345" parent="335" name="product_owner_id">
       <Position>3</Position>
       <DataType>bigint(20)|0s</DataType>
     </column>
-    <index id="342" parent="335" name="FK4hg4dgorb7iensoqvcm3lvnsl">
+    <index id="346" parent="335" name="FK4hg4dgorb7iensoqvcm3lvnsl">
       <ColNames>product_owner_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="343" parent="335" name="PRIMARY">
+    <key id="347" parent="335" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>product_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="344" parent="335" name="FK4hg4dgorb7iensoqvcm3lvnsl">
+    <foreign-key id="348" parent="335" name="FK4hg4dgorb7iensoqvcm3lvnsl">
       <ColNames>product_owner_id</ColNames>
       <RefTableName>users</RefTableName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
-    <column id="345" parent="336" name="requirement_id">
+    <column id="349" parent="336" name="requirement_id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="346" parent="336" name="requirement_name">
+    <column id="350" parent="336" name="requirement_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="347" parent="336" name="product">
+    <column id="351" parent="336" name="product">
       <Position>3</Position>
       <DataType>bigint(20)|0s</DataType>
     </column>
-    <index id="348" parent="336" name="FK6q5fkrnuw98n0rpkpewmpukn6">
+    <column id="352" parent="336" name="completed">
+      <Position>4</Position>
+      <DataType>bit(1)|0s</DataType>
+    </column>
+    <column id="353" parent="336" name="requirement_description">
+      <Position>5</Position>
+      <DataType>varchar(2048)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="354" parent="336" name="FK6q5fkrnuw98n0rpkpewmpukn6">
       <ColNames>product</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="349" parent="336" name="PRIMARY">
+    <key id="355" parent="336" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>requirement_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="350" parent="336" name="FK6q5fkrnuw98n0rpkpewmpukn6">
+    <foreign-key id="356" parent="336" name="FK6q5fkrnuw98n0rpkpewmpukn6">
       <ColNames>product</ColNames>
       <RefTableName>products</RefTableName>
       <RefColNames>product_id</RefColNames>
     </foreign-key>
-    <column id="351" parent="337" name="task_id">
+    <column id="357" parent="337" name="sprint_result_id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="352" parent="337" name="description">
+    <column id="358" parent="337" name="completed">
+      <Position>2</Position>
+      <DataType>bit(1)|0s</DataType>
+    </column>
+    <column id="359" parent="337" name="description">
+      <Position>3</Position>
+      <DataType>varchar(2048)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="360" parent="337" name="sprint_id">
+      <Position>4</Position>
+      <DataType>bigint(20)|0s</DataType>
+    </column>
+    <index id="361" parent="337" name="FKm0xaij2qsx4v31wm4bt0tryum">
+      <ColNames>sprint_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="362" parent="337" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>sprint_result_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="363" parent="337" name="FKm0xaij2qsx4v31wm4bt0tryum">
+      <ColNames>sprint_id</ColNames>
+      <RefTableName>sprints</RefTableName>
+      <RefColNames>sprint_id</RefColNames>
+    </foreign-key>
+    <column id="364" parent="338" name="sprint_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="365" parent="338" name="created">
+      <Position>2</Position>
+      <DataType>datetime|0s</DataType>
+    </column>
+    <column id="366" parent="338" name="description">
+      <Position>3</Position>
+      <DataType>varchar(2048)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="367" parent="338" name="modified">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+    </column>
+    <column id="368" parent="338" name="sprint_name">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="369" parent="338" name="status">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="370" parent="338" name="sprint_result_sprint_result_id">
+      <Position>7</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="371" parent="338" name="UK_qtl18n92vm7widuhkfcn04ibq">
+      <ColNames>sprint_result_sprint_result_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="372" parent="338" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>sprint_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="373" parent="338" name="UK_qtl18n92vm7widuhkfcn04ibq">
+      <ColNames>sprint_result_sprint_result_id</ColNames>
+      <UnderlyingIndexName>UK_qtl18n92vm7widuhkfcn04ibq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="374" parent="338" name="FKrxg82qfk2hhwdoejimxonf7hp">
+      <ColNames>sprint_result_sprint_result_id</ColNames>
+      <RefTableName>sprint_results</RefTableName>
+      <RefColNames>sprint_result_id</RefColNames>
+    </foreign-key>
+    <column id="375" parent="339" name="task_result_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="376" parent="339" name="completed">
+      <Position>2</Position>
+      <DataType>bit(1)|0s</DataType>
+    </column>
+    <column id="377" parent="339" name="description">
+      <Position>3</Position>
+      <DataType>varchar(2048)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="378" parent="339" name="task_id">
+      <Position>4</Position>
+      <DataType>bigint(20)|0s</DataType>
+    </column>
+    <index id="379" parent="339" name="FKjcy9q0nya1lo8l2lbwvfy733k">
+      <ColNames>task_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="380" parent="339" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>task_result_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="381" parent="339" name="FKjcy9q0nya1lo8l2lbwvfy733k">
+      <ColNames>task_id</ColNames>
+      <RefTableName>tasks</RefTableName>
+      <RefColNames>task_id</RefColNames>
+    </foreign-key>
+    <column id="382" parent="340" name="task_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="383" parent="340" name="description">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="353" parent="337" name="priority">
+    <column id="384" parent="340" name="priority">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="354" parent="337" name="status">
+    <column id="385" parent="340" name="status">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="355" parent="337" name="task_name">
+    <column id="386" parent="340" name="task_name">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="356" parent="337" name="type">
+    <column id="387" parent="340" name="type">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="357" parent="337" name="assigned_from_name">
+    <column id="388" parent="340" name="assigned_from_name">
       <Position>7</Position>
       <DataType>bigint(20)|0s</DataType>
     </column>
-    <column id="358" parent="337" name="assigned_to_name">
+    <column id="389" parent="340" name="assigned_to_name">
       <Position>8</Position>
       <DataType>bigint(20)|0s</DataType>
     </column>
-    <index id="359" parent="337" name="FKru8bb081rpvyb1gnubm0x46ny">
+    <column id="390" parent="340" name="sprint_sprint_id">
+      <Position>9</Position>
+      <DataType>bigint(20)|0s</DataType>
+    </column>
+    <column id="391" parent="340" name="task_result_task_result_id">
+      <Position>10</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="392" parent="340" name="UK_q4t82kdicbr4ir2upf37dv8r5">
+      <ColNames>task_result_task_result_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="393" parent="340" name="FKru8bb081rpvyb1gnubm0x46ny">
       <ColNames>assigned_from_name</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="360" parent="337" name="FK2f692t2n3y0q3am7raw7wp501">
+    <index id="394" parent="340" name="FK2f692t2n3y0q3am7raw7wp501">
       <ColNames>assigned_to_name</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="361" parent="337" name="PRIMARY">
+    <index id="395" parent="340" name="FK999gfytwald5x652ad67sh627">
+      <ColNames>sprint_sprint_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="396" parent="340" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>task_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="362" parent="337" name="FKru8bb081rpvyb1gnubm0x46ny">
+    <key id="397" parent="340" name="UK_q4t82kdicbr4ir2upf37dv8r5">
+      <ColNames>task_result_task_result_id</ColNames>
+      <UnderlyingIndexName>UK_q4t82kdicbr4ir2upf37dv8r5</UnderlyingIndexName>
+    </key>
+    <foreign-key id="398" parent="340" name="FKru8bb081rpvyb1gnubm0x46ny">
       <ColNames>assigned_from_name</ColNames>
       <RefTableName>users</RefTableName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
-    <foreign-key id="363" parent="337" name="FK2f692t2n3y0q3am7raw7wp501">
+    <foreign-key id="399" parent="340" name="FK2f692t2n3y0q3am7raw7wp501">
       <ColNames>assigned_to_name</ColNames>
       <RefTableName>users</RefTableName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
-    <column id="364" parent="338" name="user_id">
+    <foreign-key id="400" parent="340" name="FK999gfytwald5x652ad67sh627">
+      <ColNames>sprint_sprint_id</ColNames>
+      <RefTableName>sprints</RefTableName>
+      <RefColNames>sprint_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="401" parent="340" name="FK7lfo7o22wy8k7icrqx007k8ca">
+      <ColNames>task_result_task_result_id</ColNames>
+      <RefTableName>task_results</RefTableName>
+      <RefColNames>task_result_id</RefColNames>
+    </foreign-key>
+    <column id="402" parent="341" name="team_id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="365" parent="338" name="email">
+    <column id="403" parent="341" name="team_description">
+      <Position>2</Position>
+      <DataType>varchar(2048)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="404" parent="341" name="team_name">
+      <Position>3</Position>
+      <DataType>varchar(60)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="405" parent="341" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>team_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="406" parent="342" name="user_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="407" parent="342" name="email">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="366" parent="338" name="password">
+    <column id="408" parent="342" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="367" parent="338" name="position">
+    <column id="409" parent="342" name="position">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="368" parent="338" name="user_name">
+    <column id="410" parent="342" name="user_name">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="369" parent="338" name="product_develops_name">
+    <column id="411" parent="342" name="product_develops_name">
       <Position>6</Position>
       <DataType>bigint(20)|0s</DataType>
     </column>
-    <column id="370" parent="338" name="product_own_product_id">
+    <column id="412" parent="342" name="product_own_product_id">
       <Position>7</Position>
       <DataType>bigint(20)|0s</DataType>
     </column>
-    <index id="371" parent="338" name="FKc6xk1h5f2hwbnj1yf5fy7jwv1">
+    <column id="413" parent="342" name="created">
+      <Position>8</Position>
+      <DataType>datetime|0s</DataType>
+    </column>
+    <column id="414" parent="342" name="modified">
+      <Position>9</Position>
+      <DataType>datetime|0s</DataType>
+    </column>
+    <column id="415" parent="342" name="team_id">
+      <Position>10</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="416" parent="342" name="role">
+      <Position>11</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="417" parent="342" name="UK_2dcolmy5j1vlvbifnf6kpop05">
+      <ColNames>product_own_product_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="418" parent="342" name="FKc6xk1h5f2hwbnj1yf5fy7jwv1">
       <ColNames>product_develops_name</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="372" parent="338" name="FK67l0oelacefldm07raj8oaw2n">
-      <ColNames>product_own_product_id</ColNames>
+    <index id="419" parent="342" name="FKfjws1rdruab2bqg7qipoqf65r">
+      <ColNames>team_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="373" parent="338" name="PRIMARY">
+    <key id="420" parent="342" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="374" parent="338" name="FKc6xk1h5f2hwbnj1yf5fy7jwv1">
+    <key id="421" parent="342" name="UK_2dcolmy5j1vlvbifnf6kpop05">
+      <ColNames>product_own_product_id</ColNames>
+      <UnderlyingIndexName>UK_2dcolmy5j1vlvbifnf6kpop05</UnderlyingIndexName>
+    </key>
+    <foreign-key id="422" parent="342" name="FKc6xk1h5f2hwbnj1yf5fy7jwv1">
       <ColNames>product_develops_name</ColNames>
       <RefTableName>products</RefTableName>
       <RefColNames>product_id</RefColNames>
     </foreign-key>
-    <foreign-key id="375" parent="338" name="FK67l0oelacefldm07raj8oaw2n">
+    <foreign-key id="423" parent="342" name="FK67l0oelacefldm07raj8oaw2n">
       <ColNames>product_own_product_id</ColNames>
       <RefTableName>products</RefTableName>
       <RefColNames>product_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="424" parent="342" name="FKfjws1rdruab2bqg7qipoqf65r">
+      <ColNames>team_id</ColNames>
+      <RefTableName>teams</RefTableName>
+      <RefColNames>team_id</RefColNames>
     </foreign-key>
   </database-model>
 </dataSource>
