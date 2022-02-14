@@ -42,9 +42,3 @@ class HomeController {
    }
 
 }
-
-
-
-
-
-

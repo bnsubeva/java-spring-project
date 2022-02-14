@@ -27,8 +27,7 @@ public class ProductController {
     }
 
     @GetMapping("/product-form")
-    public String getArticleForm(Model model, HttpSession session, RedirectAttributes redirectAttributes,
-                                       Authentication auth) {
+    public String getArticleForm(Model model, Authentication auth) {
         User user = userService.findByUsername(((User)auth.getPrincipal()).getUsername());
         if (!model.containsAttribute("product")) {
             model.addAttribute("product", new Product());

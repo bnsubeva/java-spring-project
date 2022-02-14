@@ -32,7 +32,6 @@ public class Task {
 
     @NotNull
     @NonNull
-    @Size(min = 10, max = 2048, message = "Description must be between 10 and 2048 characters long")
     private String description;
 
     @NotNull
@@ -42,7 +41,7 @@ public class Task {
     @NonNull
     private Priority priority;
 
-    @OneToOne( optional = false, orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.ALL )
+    @OneToOne(optional = false, orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.ALL )
     @JoinColumn(name = "task_result_id")
     private TaskResult taskResult;
 
