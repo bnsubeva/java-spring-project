@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/menu :: common-header">
+    <title>Profile</title>
+</head>
+<div th:replace="fragments/menu :: common-navigation">&nbsp;</div>
+<body>
+<div class="container">
+    <h2>Error Page</h2>
+    <div th:text="${message}"></div>
+</div>
+</body>
+</html>

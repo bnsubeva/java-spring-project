@@ -21,6 +21,7 @@ public class RequirementServiceImpl implements RequirementService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Requirement> getAllRequirements() {
         return requirementRepository.findAll();
     }
@@ -31,22 +32,19 @@ public class RequirementServiceImpl implements RequirementService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Requirement getRequirementByRequirementId(Long requirementId) {
         return requirementRepository.findById(requirementId).get();
     }
-/*
-    @Override
-    public List<Requirement> getRequirementsByProductId(Long productId) {
 
-        return  requirementRepository.findAllById();
-    }
-*/
     @Override
+    @Transactional(readOnly = true)
     public Requirement updateRequirement(Requirement requirement) {
          return requirementRepository.save(requirement);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public void deleteRequirementById(Long requirementId) {
     requirementRepository.deleteById(requirementId);
     }

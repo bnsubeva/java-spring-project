@@ -1,9 +1,12 @@
 package com.spring.task.management.system.controller;
 
 import com.spring.task.management.system.entity.Task;
+import com.spring.task.management.system.entity.User;
 import com.spring.task.management.system.repository.TaskRepository;
 import com.spring.task.management.system.service.TaskService;
+import com.spring.task.management.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,46 +16,40 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/tasks")
 public class TaskController {
+
     private final TaskService taskService;
+    private final UserService userService;
 
     @Autowired
-    public TaskController(TaskService taskService) {
+    public TaskController(TaskService taskService, UserService userService) {
         this.taskService = taskService;
+        this.userService = userService;
     }
 
-
-    @PostMapping
-    public Task addTask( @RequestBody Task task){
-        return taskService.addTask(task);
-    }
-
-
-    @GetMapping("/showNewTaskForm")
+    @GetMapping("/task-form")
     public String showNewTaskForm(Model model) {
         Task task = new Task();
         model.addAttribute("task", task);
-        System.out.println("asd");
-        return "newTask";
+        return "task-form";
     }
-    @PostMapping("/showNewTaskForm")
-    public String saveTask(@ModelAttribute("task") Task task) {
-        taskService.addTask(task);
-        Task task2=taskService.addTask(task);
-        System.out.println(task);
+
+    @PostMapping("/task-form")
+    public String saveTask(@ModelAttribute("task") Task task, Authentication auth) {
+        User user = userService.findByUsername(((User)auth.getPrincipal()).getUsername());
+        taskService.addTask(task, user);
         return "redirect:/";
     }
+
     @GetMapping("/showFormForUpdateTask/{id}")
     public String showFormForUpdateTask(@PathVariable ( value = "id") long id, Model model) {
-
         Task task = taskService.getTaskById(id);
-
         model.addAttribute("task",task);
         return "updateTask";
     }
 
     @GetMapping("/deleteTask/{id}")
     public String deleteTask(@PathVariable (value = "id") long id) {
-        this.taskService.deleteTaskById(id);
+        taskService.deleteTaskById(id);
         return "redirect:/";
     }
 

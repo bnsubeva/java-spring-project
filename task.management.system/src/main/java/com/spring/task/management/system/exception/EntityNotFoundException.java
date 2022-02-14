@@ -1,6 +1,7 @@
 package com.spring.task.management.system.exception;
 
 public class EntityNotFoundException extends RuntimeException {
+
     public EntityNotFoundException() {
     }
 

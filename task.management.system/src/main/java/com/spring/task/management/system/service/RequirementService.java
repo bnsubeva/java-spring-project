@@ -10,11 +10,6 @@ public interface RequirementService {
     Requirement addRequirement(Requirement requirement);
 
     Requirement getRequirementByRequirementId(Long requirementId);
-    /*
-
-    List<Requirement> getRequirementsByProductId(Long productId);
-
-     */
 
     Requirement updateRequirement(Requirement requirement);
     

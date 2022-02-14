@@ -13,7 +13,8 @@
             <div class="form-group">
                 <label for="productName" class="col-lg-2 control-label">Name</label>
                 <div class="col-lg-10">
-                    <input th:field="*{productName}" type="text" class="form-control" id="productName" placeholder="name"/>
+                    <input th:field="*{productName}" type="text" class="form-control"
+                           id="productName" placeholder="name"/>
                 </div>
             </div>
             <div class="form-group">
@@ -24,37 +25,19 @@
                 </div>
             </div>
             <div class="form-group">
+<<<<<<< HEAD:task.management.system/src/main/resources/templates/product-form.html
+                <label for="description" class="col-lg-2 control-label">Requirements</label>
+                <div class="col-lg-10">
+                    <textarea th:field="*{requirementList}" type="text" class="form-control" id="requirementList" placeholder="requirementList">
+=======
                 <label for="requirements" class="col-lg-2 control-label">Requirements</label>
                 <div class="col-lg-10">
                     <textarea th:field="*{requirements}" type="text" class="form-control" id="requirements" placeholder="requirements">
+>>>>>>> cac0576d40f207c307f623bdc3895a02412b1ab2:task.management.system/src/main/resources/templates/newProduct.html
                     </textarea>
                 </div>
             </div>
-            <!--<div class="form-group">
-                <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-                <div class="col-lg-10">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-lg-offset-2 col-lg-10">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="_spring_security_remember_me" /> Remember me
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-lg-offset-2 col-lg-10">
-                    <button type="submit" class="btn btn-default">Sign in</button>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-lg-offset-2 col-lg-10">
-                    <p>New here? <a href="signup" th:href="@{/signup}">Sign Up</a></p>
-                </div>
-            </div>-->
+            <button type="submit" class="btn btn-info col-2"> Save Product</button>
         </fieldset>
 
     </form>

@@ -6,14 +6,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-
-import static org.springframework.http.HttpMethod.GET;
 
 @Configuration
 @Slf4j
@@ -30,6 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
             .authorizeRequests()
+            .antMatchers(HttpMethod.POST, "/products/product-form").hasRole("PRODUCT_OWNER")
             .antMatchers("/**").authenticated()
             .and()
             .formLogin();
@@ -46,11 +45,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 throw new UsernameNotFoundException(ex.getMessage(), ex);
             }
         };
-    }
-
-    @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManager();
     }
 
 }

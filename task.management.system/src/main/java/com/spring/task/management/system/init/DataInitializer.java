@@ -26,8 +26,8 @@ public class DataInitializer implements ApplicationRunner {
     }
 
     private final List<User> DEFAULT_USERS = Arrays.asList(
-        new User("admin", "Admin123&", "admin_email1@email.com", Position.BACKEND_DEVELOPER),
-        new User("author", "Author123&", "admin_email2@email.com", Position.BACKEND_DEVELOPER)
+        new User("Erik", "erik1234", "erik@email.com", Position.PRODUCT_OWNER),
+        new User("Bella", "bella1234", "bella_email2@email.com", Position.FRONTEND_DEVELOPER)
     );
 
     @Override
