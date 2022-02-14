@@ -10,6 +10,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+<<<<<<< HEAD
+=======
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpSession;
+>>>>>>> cac0576d40f207c307f623bdc3895a02412b1ab2
 
 @Controller
 @RequestMapping("/products")
@@ -35,7 +41,7 @@ public class ProductController {
         if (!model.containsAttribute("product")) {
             model.addAttribute("product", new Product());
         }
-        return "product-form";
+        return "newProduct";
     }
 
     @PostMapping("/product-form")

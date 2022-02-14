@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/menu :: common-header">
+    <title>New Sprint</title>
+</head>
+<div th:replace="fragments/menu :: common-navigation">&nbsp;</div>
+<body>
+<div class="container">
+    <h1>Task Management System</h1>
+    <hr>
+    <h2>Save Sprint</h2>
+
+    <form th:object="${sprint}" method="POST">
+        <input type="text" th:field="*{sprintName}" placeholder="Sprint Name" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{description}" placeholder="Sprint Description" class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn btn-info col-2"> Save Sprint</button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/sprint}"> Back to Sprint</a>
+</div>
+</body>
+</html>
