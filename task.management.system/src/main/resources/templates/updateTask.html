@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/menu :: common-header">
+    <title>New task</title>
+</head>
+<div th:replace="fragments/menu :: common-navigation">&nbsp;</div>
+<body>
+<div class="container">
+    <h1>Task Management System</h1>
+    <hr>
+    <h2>Update Task</h2>
+
+    <form action="#" th:action="@{/saveTask}" th:object="${task}" method="POST">
+
+        <input type="hidden" th:field="*{taskId}" />
+
+        <input type="text" th:field="*{taskResult}" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{status}" class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn btn-info col-2"> Update Task</button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/}"> Back to Home</a>
+</div>
+</body>
+</html>
