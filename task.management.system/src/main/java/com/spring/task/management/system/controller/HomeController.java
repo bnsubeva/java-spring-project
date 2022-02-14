@@ -1,5 +1,6 @@
 package com.spring.task.management.system.controller;
 
+import com.spring.task.management.system.entity.Task;
 import com.spring.task.management.system.entity.User;
 import com.spring.task.management.system.service.TaskService;
 import com.spring.task.management.system.service.UserService;
