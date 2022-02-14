@@ -4,11 +4,12 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Data
 @Entity
-@Builder
+@NoArgsConstructor
 @Table(name = "products")
 public class Product {
 
@@ -20,6 +21,10 @@ public class Product {
     @NonNull
     @NotNull
     private String productName;
+
+    @NotNull
+    @NonNull
+    private String description;
 
     /*@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "productOwnerId", referencedColumnName = "userId")

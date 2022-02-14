@@ -32,8 +32,6 @@ public class DataInitializer implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        System.out.println("SOMETJHING");
-        System.out.println(userService.count());
         if(userService.count() == 0) {
             log.info("Successfully created users: {}",
                 DEFAULT_USERS.stream().map(userService::addUser).collect(Collectors.toList()));

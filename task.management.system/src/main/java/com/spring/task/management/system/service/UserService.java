@@ -12,12 +12,6 @@ public interface UserService {
 
     User addUser(User user);
 
-    User login(Long userId);
-
-    User updateUser(User user);
-
-    void deleteUserById(Long userId);
-
     long count();
 
 }

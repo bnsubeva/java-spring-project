@@ -40,10 +40,10 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Position position;
 
-    @OneToMany(mappedBy = "assignedTo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "assignedTo", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Task> tasks = new HashSet<>();
 
-    /*@OneToOne
+    @OneToOne
     @JoinColumn
     private Product productOwn;
 
@@ -51,7 +51,7 @@ public class User implements UserDetails {
     private Product productDevelops;
 
     @ManyToOne
-    private Team team;*/
+    private Team team;
 
     private boolean active = true;
 

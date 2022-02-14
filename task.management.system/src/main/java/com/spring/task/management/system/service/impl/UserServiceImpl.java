@@ -45,21 +45,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User login(Long userId) {
-        return userRepository.findById(userId).get();
-    }
-
-    @Override
-    public  User updateUser(User user) {
-        return userRepository.save(user);
-    }
-
-    @Override
-    public void deleteUserById(Long userId) {
-        userRepository.deleteById(userId);
-    }
-
-    @Override
     @Transactional(readOnly = true)
     public long count() {
         return userRepository.count();

@@ -30,12 +30,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
             .authorizeRequests()
-            .antMatchers(GET, "/profile").hasAnyRole("SOFTWARE_DEVELOPER")
-            .antMatchers("/**").permitAll()
+            .antMatchers("/**").authenticated()
             .and()
-            .formLogin()
-            .and()
-            .httpBasic();
+            .formLogin();
     }
 
     @Bean
