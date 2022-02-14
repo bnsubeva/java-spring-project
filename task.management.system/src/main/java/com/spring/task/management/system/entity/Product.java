@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @Entity
@@ -26,14 +26,13 @@ public class Product {
     @NonNull
     private String description;
 
-    /*@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "productOwnerId", referencedColumnName = "userId")
+    @OneToOne
     private User productOwner;
-*/
-    /*@OneToMany(targetEntity = User.class, mappedBy="productDevelops",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Task> tasks;*/
 
-    @OneToMany(targetEntity = Requirement.class, mappedBy = "product",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Requirement> requirements;
+    @OneToMany(targetEntity = Requirement.class, mappedBy = "product",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Requirement> requirements = new ArrayList<>();
+
+    @Transient
+    private String requirementList;
 
 }

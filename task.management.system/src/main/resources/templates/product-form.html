@@ -13,7 +13,8 @@
             <div class="form-group">
                 <label for="productName" class="col-lg-2 control-label">Name</label>
                 <div class="col-lg-10">
-                    <input th:field="*{productName}" type="text" class="form-control" id="productName" placeholder="name"/>
+                    <input th:field="*{productName}" type="text" class="form-control"
+                           id="productName" placeholder="name"/>
                 </div>
             </div>
             <div class="form-group">
@@ -23,38 +24,14 @@
                     </textarea>
                 </div>
             </div>
-            <div th:each="requirement : ${requirements}" class="form-group">
-                <label for="description" class="col-lg-2 control-label">Descr</label>
+            <div class="form-group">
+                <label for="description" class="col-lg-2 control-label">Requirements</label>
                 <div class="col-lg-10">
-                    <textarea th:field="*{description}" type="text" class="form-control" id="description" placeholder="description">
+                    <textarea th:field="*{requirementList}" type="text" class="form-control" id="requirementList" placeholder="requirementList">
                     </textarea>
                 </div>
             </div>
-            <!--<div class="form-group">
-                <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-                <div class="col-lg-10">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-lg-offset-2 col-lg-10">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="_spring_security_remember_me" /> Remember me
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-lg-offset-2 col-lg-10">
-                    <button type="submit" class="btn btn-default">Sign in</button>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-lg-offset-2 col-lg-10">
-                    <p>New here? <a href="signup" th:href="@{/signup}">Sign Up</a></p>
-                </div>
-            </div>-->
+            <button type="submit" class="btn btn-info col-2"> Save Product</button>
         </fieldset>
 
     </form>

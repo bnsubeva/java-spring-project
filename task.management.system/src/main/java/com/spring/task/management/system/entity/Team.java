@@ -7,6 +7,8 @@ import lombok.NonNull;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -28,7 +30,7 @@ public class Team {
     @Size(min = 10, max = 2048, message = "Team description must be between 10 and 2048 characters long")
     private String teamDescription;
 
-    /*@OneToMany(targetEntity = User.class, mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<User> users;*/
+    @OneToMany(targetEntity = User.class, mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<User> users = new HashSet<>();
 
 }

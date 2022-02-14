@@ -27,36 +27,16 @@
                      <a href="#" th:href="@{/profile}">Profile</a>
                  </li>
                 <li th:classappend="${module == 'sprint' ? 'active' : ''}">
-                    <a href="#" th:href="@{/sprint}">Sprint</a>
+                    <a href="#" th:href="@{/sprints}">Sprint</a>
                 </li>
                 <li th:classappend="${module == 'product' ? 'active' : ''}">
-                    <a href="#" th:href="@{/product}">Products</a>
+                    <a href="#" th:href="@{/products}">Products</a>
                 </li>
                 <li th:classappend="${module == 'history' ? 'active' : ''}">
                     <a href="#" th:href="@{/history}">History</a>
                 </li>
              </ul>
-
-             <ul class="nav navbar-nav navbar-right">
-                 <li th:if="true">
-                 <!-- instead true -->
-                 <!--"${#authorization.expression('!isAuthenticated()')}"-->
-                         <a href="/signin" th:href="@{/login}">
-                         <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;Sign in
-                     </a>
-                 </li>
-                <li th:if="true">
-                    <!-- instead true -->
-                    <!--"${#authorization.expression('!isAuthenticated()')}"-->
-                    <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">
-                         <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout
-                     </a>
-                     <form style="visibility: hidden" id="form" method="post" action="#" th:action="@{/logout}"></form>
-                 </li>
-             </ul>
-
          </div>
-         <!--/.nav-collapse -->
     </div>
 </nav>
 </body>

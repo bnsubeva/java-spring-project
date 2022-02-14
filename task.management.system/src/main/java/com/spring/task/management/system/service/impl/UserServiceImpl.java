@@ -30,7 +30,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByUsername(String username) {
-        return userRepository.findByUsername(username).orElseThrow(EntityNotFoundException::new);
+        return userRepository.findByUsername(username).orElseThrow(
+            () -> new EntityNotFoundException("User with such username " + username + " doesn't exist!")
+        );
     }
 
     @Override

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/menu :: common-header">
+    <title>Home</title>
+</head>
+<body>
+<div th:replace="fragments/menu :: common-navigation">&nbsp;</div>
+<div class="container">
+    <h1>Product List</h1>
+
+    <div>
+        <a th:href="@{/products/product-form}" class="btn btn-primary btn-sm mb-3"> Add Product </a>
+    </div>
+
+    <table border="1" class = "table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <!--<th>Sprint result</th>-->
+            <th>Tasks</th>
+            <th>Product owner</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.productName}"></td>
+            <td th:text="${product.description}"></td>
+          <!--  <td th:text="${product.sprintResult.description}"></td>-->
+            <td>
+                <ol th:each="requirement : ${product.requirements}">
+                    <li th:text="${requirement.requirementName}"></li>
+                    <li th:text="${requirement.requirementDescription}"></li>
+                </ol>
+            </td>
+            <td th:text="${product.productOwner.username}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>

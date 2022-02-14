@@ -8,8 +8,8 @@ import javax.validation.constraints.Size;
 
 @Data
 @Entity
-@Builder
 @Table(name = "requirements")
+@NoArgsConstructor
 public class Requirement {
 
     @Id
@@ -24,7 +24,6 @@ public class Requirement {
     @Column
     @NotNull
     @NonNull
-    @Size(min = 10, max = 2048, message = "Description must be between 10 and 2048 characters long")
     private String requirementDescription;
 
     @Column
@@ -32,5 +31,12 @@ public class Requirement {
 
     @ManyToOne
     @JoinColumn(name = "product")
+    @ToString.Exclude
     private Product product;
+
+    public Requirement(String requirementName, String requirementDescription, Product product) {
+        this.requirementName = requirementName;
+        this.requirementDescription = requirementDescription;
+        this.product = product;
+    }
 }

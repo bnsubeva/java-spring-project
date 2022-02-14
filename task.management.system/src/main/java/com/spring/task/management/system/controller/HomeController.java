@@ -1,6 +1,5 @@
 package com.spring.task.management.system.controller;
 
-import com.spring.task.management.system.entity.Task;
 import com.spring.task.management.system.entity.User;
 import com.spring.task.management.system.service.TaskService;
 import com.spring.task.management.system.service.UserService;
@@ -8,10 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-class HomeController {
+@ControllerAdvice
+public class HomeController {
 
    private final UserService userService;
    private final TaskService taskService;

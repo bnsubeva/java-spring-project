@@ -1,12 +1,9 @@
 package com.spring.task.management.system.entity;
 
-import com.spring.task.management.system.enums.Priority;
-import com.spring.task.management.system.enums.Status;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Getter
 @Setter

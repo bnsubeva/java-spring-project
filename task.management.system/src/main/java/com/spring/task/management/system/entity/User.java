@@ -43,13 +43,6 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "assignedTo", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Task> tasks = new HashSet<>();
 
-    @OneToOne
-    @JoinColumn
-    private Product productOwn;
-
-    @ManyToOne
-    private Product productDevelops;
-
     @ManyToOne
     private Team team;
 
