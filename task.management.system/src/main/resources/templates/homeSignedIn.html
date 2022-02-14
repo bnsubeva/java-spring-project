@@ -25,7 +25,7 @@
         <tr th:each="task : ${listTasks}">
             <td th:text="${task.taskName}"></td>
             <td th:text="${task.type}"></td>
-            <td th:text="${task.assignedTo}"></td>
+            <td th:text="${task.assignedTo.username}"></td>
             <td th:text="${task.taskResult.description}"></td>
         </tr>
         </tbody>

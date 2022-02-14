@@ -35,7 +35,7 @@ public class ProductController {
         if (!model.containsAttribute("product")) {
             model.addAttribute("product", new Product());
         }
-        return "newProduct";
+        return "product-form";
     }
 
     @PostMapping("/product-form")

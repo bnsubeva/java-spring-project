@@ -35,7 +35,7 @@ public class Task {
     @NonNull
     private String priority;
 
-    @OneToOne(optional = false, orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.ALL )
+    @OneToOne(optional = false, orphanRemoval = true, cascade = CascadeType.ALL )
     @JoinColumn(name = "task_result_id")
     private TaskResult taskResult;
 

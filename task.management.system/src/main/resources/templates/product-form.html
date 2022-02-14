@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:insert="fragments/menu :: common-header">
-    <title>Save Product</title>
+    <title>Profile</title>
 </head>
 <div th:replace="fragments/menu :: common-navigation">&nbsp;</div>
 <body>
@@ -25,15 +25,9 @@
                 </div>
             </div>
             <div class="form-group">
-<<<<<<< HEAD:task.management.system/src/main/resources/templates/product-form.html
                 <label for="description" class="col-lg-2 control-label">Requirements</label>
                 <div class="col-lg-10">
                     <textarea th:field="*{requirementList}" type="text" class="form-control" id="requirementList" placeholder="requirementList">
-=======
-                <label for="requirements" class="col-lg-2 control-label">Requirements</label>
-                <div class="col-lg-10">
-                    <textarea th:field="*{requirements}" type="text" class="form-control" id="requirements" placeholder="requirements">
->>>>>>> cac0576d40f207c307f623bdc3895a02412b1ab2:task.management.system/src/main/resources/templates/newProduct.html
                     </textarea>
                 </div>
             </div>
@@ -41,9 +35,6 @@
         </fieldset>
 
     </form>
-    <hr>
-
-    <a th:href="@{/product}"> Back to Product</a>
 </div>
 </body>
 </html>
