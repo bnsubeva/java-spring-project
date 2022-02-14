@@ -22,7 +22,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="task : ${listTasks}" th:if="${task.status} == 'IN_PROGRESS'">
+        <tr th:each="task : ${listTasks}">
             <td th:text="${task.taskName}"></td>
             <td th:text="${task.type}"></td>
             <td th:text="${task.assignedTo}"></td>
