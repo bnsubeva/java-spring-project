@@ -1,7 +1,7 @@
 package com.spring.task.management.system.service.impl;
 
 import com.spring.task.management.system.exception.EntityNotFoundException;
-import com.spring.task.management.system.model.Product;
+import com.spring.task.management.system.entity.Product;
 import com.spring.task.management.system.repository.ProductRepository;
 import com.spring.task.management.system.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;

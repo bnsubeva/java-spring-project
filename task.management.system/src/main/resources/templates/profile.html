@@ -20,11 +20,15 @@
          </thead>
          <tbody>
          <!-- to do filter for User-->
-         <tr th:each="task : ${listTasks}" th:if="${task.status} == 'IN_PROGRESS'">
+         <!--<tr th:each="task : ${listTasks}" th:if="${task.status} == 'IN_PROGRESS'">
              <td th:text="${task.taskName}"></td>
              <td th:text="${task.type}"></td>
              <td th:text="${task.priority}"></td>
              <td th:text="${task.assignedFrom}"></td>
+         </tr>-->
+         <tr>
+             <td th:text="${username}"></td>
+             <td th:text="${email}"></td>
          </tr>
          </tbody>
      </table>

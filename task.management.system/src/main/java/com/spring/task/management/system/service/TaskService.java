@@ -1,6 +1,6 @@
 package com.spring.task.management.system.service;
 
-import com.spring.task.management.system.model.Task;
+import com.spring.task.management.system.entity.Task;
 
 import java.util.List;
 

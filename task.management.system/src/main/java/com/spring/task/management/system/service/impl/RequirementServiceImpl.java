@@ -1,6 +1,6 @@
 package com.spring.task.management.system.service.impl;
 
-import com.spring.task.management.system.model.Requirement;
+import com.spring.task.management.system.entity.Requirement;
 import com.spring.task.management.system.repository.RequirementRepository;
 import com.spring.task.management.system.service.RequirementService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.spring.task.management.system.model;
+package com.spring.task.management.system.entity;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -37,10 +37,9 @@ public class Sprint {
     @Column
     @NotNull
     @NonNull
-    private String status;
+    private boolean active;
 
     @OneToOne(optional = false)
-    @JoinColumn
     private SprintResult sprintResult;
 
     @OneToMany(targetEntity = Task.class, mappedBy = "sprint", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

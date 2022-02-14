@@ -1,4 +1,4 @@
-package com.spring.task.management.system.model;
+package com.spring.task.management.system.entity;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -12,13 +12,13 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 @Entity
-@Table(name = "taskResults")
+@Table(name = "sprintResults")
 @Builder
-public class TaskResult {
+public class SprintResult {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE)
-    private Long taskResultId;
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    private Long sprintResultId;
 
     @Column
     @NotNull
@@ -26,11 +26,12 @@ public class TaskResult {
     @Size(min = 10, max = 2048, message = "Description must be between 10 and 2048 characters long")
     private String description;
 
-    //@MapsId
-    @OneToOne( optional = false, fetch = FetchType.LAZY, mappedBy = "taskResult")
-    private Task task;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "sprint_id", referencedColumnName = "sprintId")
+    private Sprint sprint;
 
     @Column
     private boolean completed;
 
 }
+

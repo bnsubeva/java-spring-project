@@ -1,6 +1,6 @@
 package com.spring.task.management.system.service.impl;
 
-import com.spring.task.management.system.model.Task;
+import com.spring.task.management.system.entity.Task;
 import com.spring.task.management.system.repository.TaskRepository;
 import com.spring.task.management.system.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;

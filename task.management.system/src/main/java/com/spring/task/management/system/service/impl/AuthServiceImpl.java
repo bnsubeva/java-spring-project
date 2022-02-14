@@ -1,6 +1,6 @@
 package com.spring.task.management.system.service.impl;
 
-import com.spring.task.management.system.model.User;
+import com.spring.task.management.system.entity.User;
 import com.spring.task.management.system.service.AuthService;
 import com.spring.task.management.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public User login(String username, String password) {
-        User user = userService.getByUsername(username);
+        User user = userService.findByUsername(username);
         if(user.getPassword().equals(password)) {
             return user;
         } else {
