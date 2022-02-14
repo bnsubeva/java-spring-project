@@ -1,5 +1,5 @@
 package com.spring.task.management.system.controller;
-import com.spring.task.management.system.model.Product;
+import com.spring.task.management.system.entity.Product;
 import com.spring.task.management.system.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

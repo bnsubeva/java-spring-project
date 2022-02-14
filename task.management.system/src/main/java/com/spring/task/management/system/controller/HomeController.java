@@ -1,8 +1,6 @@
 package com.spring.task.management.system.controller;
 
-import com.spring.task.management.system.model.Task;
 import com.spring.task.management.system.service.TaskService;
-import com.spring.task.management.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

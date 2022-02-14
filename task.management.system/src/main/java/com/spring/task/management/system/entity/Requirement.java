@@ -1,4 +1,4 @@
-package com.spring.task.management.system.model;
+package com.spring.task.management.system.entity;
 
 import lombok.*;
 

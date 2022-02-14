@@ -1,6 +1,6 @@
 package com.spring.task.management.system.controller;
 
-import com.spring.task.management.system.model.Task;
+import com.spring.task.management.system.entity.Task;
 import com.spring.task.management.system.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

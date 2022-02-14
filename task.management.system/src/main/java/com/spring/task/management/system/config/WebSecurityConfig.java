@@ -1,43 +1,59 @@
 package com.spring.task.management.system.config;
 
+import com.spring.task.management.system.exception.EntityNotFoundException;
+import com.spring.task.management.system.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import static org.springframework.http.HttpMethod.GET;
 
 @Configuration
 @Slf4j
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    private final UserService userService;
+
+    @Autowired
+    public WebSecurityConfig(UserService userService) {
+        this.userService = userService;
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
             .authorizeRequests()
-/*            .antMatchers(GET, "/api/users").hasAnyRole("ADMIN")
-            .antMatchers(POST, "/**").hasAnyRole("USER", "ADMIN")
-            .antMatchers(PUT, "/**").hasAnyRole("USER", "ADMIN")
-            .antMatchers(DELETE, "/**").hasRole("ADMIN")*/
-            //.antMatchers("/**").hasAnyRole("ADMIN")
-            .antMatchers("/**").permitAll();
-/*            .and()
-            .formLogin()
-            .loginPage("/auth/login")
+            .antMatchers(GET, "/profile").hasAnyRole("SOFTWARE_DEVELOPER")
+            .antMatchers("/**").permitAll()
             .and()
-            .httpBasic();*/
-/*            .and()
-            .httpBasic();*/
+            .formLogin()
+            .and()
+            .httpBasic();
     }
 
-}
-/*    @Bean
+    @Bean
     public UserDetailsService userDetailsService(UserService users) {
         return username -> {
             try {
-                UserDetails found = users.getUserByUsername(username);
+                UserDetails found = userService.findByUsername(username);
                 log.debug(">>> User authenticated for username: {} is {}", username, found);
                 return found;
             } catch (EntityNotFoundException ex) {
                 throw new UsernameNotFoundException(ex.getMessage(), ex);
             }
         };
-    }*/
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManager();
+    }
+
+}
