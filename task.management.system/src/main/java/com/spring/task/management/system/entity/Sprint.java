@@ -1,9 +1,6 @@
 package com.spring.task.management.system.entity;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -12,11 +9,10 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "sprints")
-@Builder
+@NoArgsConstructor
 public class Sprint {
 
     @Id

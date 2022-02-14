@@ -33,10 +33,10 @@ public class Task {
 
     @NotNull
     @NonNull
-    private Status status;
+    private String status;
 
     @NonNull
-    private Priority priority;
+    private String priority;
 
     @OneToOne(optional = false, orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.ALL )
     @JoinColumn(name = "task_result_id")
@@ -53,5 +53,14 @@ public class Task {
 
     @ManyToOne
     private User assignedFrom;
+
+    @Transient
+    private String sprintName;
+
+    @Transient
+    private String productName;
+
+    @Transient
+    private String assignedToName;
 
 }

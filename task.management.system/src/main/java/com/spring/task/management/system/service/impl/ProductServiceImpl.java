@@ -26,6 +26,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public Product findByName(String name) {
+        return productRepository.findByProductName(name).orElseThrow(EntityNotFoundException::new);
+    }
+
+    @Override
     public Product addProduct(Product product) {
         return productRepository.save(product);
     }
