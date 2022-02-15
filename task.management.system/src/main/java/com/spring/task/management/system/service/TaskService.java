@@ -5,7 +5,7 @@ import com.spring.task.management.system.entity.User;
 
 import java.util.List;
 
-public  interface TaskService {
+public interface TaskService {
     List<Task> getAllTasks();
 
     Task addTask(Task task, User assignedFrom);
