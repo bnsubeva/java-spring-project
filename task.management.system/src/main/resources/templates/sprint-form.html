@@ -11,9 +11,9 @@
     <h2>Save Sprint</h2>
 
     <form th:object="${sprint}" method="POST">
-        <input type="text" th:field="*{sprintName}" placeholder="Task Name" class="form-control mb-4 col-4">
-        <input type="text" th:field="*{description}" placeholder="Task description" class="form-control mb-4 col-4">
-        <button type="submit" class="btn btn-info col-2"> Save Task</button>
+        <input type="text" th:field="*{sprintName}" placeholder="Sprint Name" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{description}" placeholder="Sprint description" class="form-control mb-4 col-4">
+        <button type="submit" class="btn btn-info col-2"> Save Sprint</button>
     </form>
     <hr>
     <a th:href="@{/}"> Back to Home</a>
