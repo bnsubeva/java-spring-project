@@ -32,6 +32,9 @@ public class Product {
     @OneToMany(targetEntity = Requirement.class, mappedBy = "product",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Requirement> requirements = new ArrayList<>();
 
+    @OneToMany(mappedBy = "sprint", fetch = FetchType.EAGER)
+    private Set<Task> tasks = new HashSet<>();
+
     @Transient
     private String requirementList;
 

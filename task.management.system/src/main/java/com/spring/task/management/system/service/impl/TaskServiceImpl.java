@@ -50,6 +50,7 @@ public class TaskServiceImpl implements TaskService {
         TaskResult createdTaskResult = taskResultRepository.save(taskResult);
         task.setTaskResult(createdTaskResult);
         Task created = taskRepository.save(task);
+        product.getTasks().add(created);
         sprint.getTasks().add(created);
         return taskRepository.save(task);
     }

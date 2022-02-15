@@ -17,7 +17,7 @@
         <tr>
             <th>Name</th>
             <th>Description</th>
-            <!--<th>Sprint result</th>-->
+            <th>Requirements</th>
             <th>Tasks</th>
             <th>Product owner</th>
         </tr>
@@ -26,11 +26,15 @@
         <tr th:each="product : ${products}">
             <td th:text="${product.productName}"></td>
             <td th:text="${product.description}"></td>
-          <!--  <td th:text="${product.sprintResult.description}"></td>-->
             <td>
-                <ol th:each="requirement : ${product.requirements}">
+                <ul th:each="requirement : ${product.requirements}">
                     <li th:text="${requirement.requirementName}"></li>
                     <li th:text="${requirement.requirementDescription}"></li>
+                </ul>
+            </td>
+            <td>
+                <ol th:each="task : ${product.tasks}">
+                    <li th:text="${task.taskName}"></li>
                 </ol>
             </td>
             <td th:text="${product.productOwner.username}"></td>

@@ -18,7 +18,8 @@
             <th>Name</th>
             <th>Type</th>
             <th>Assigned To</th>
-            <th>Task Result</th>
+            <th>Task Result description</th>
+            <th>Task Result completed</th>
         </tr>
         </thead>
         <tbody>
@@ -27,6 +28,7 @@
             <td th:text="${task.type}"></td>
             <td th:text="${task.assignedTo.username}"></td>
             <td th:text="${task.taskResult.description}"></td>
+            <td th:text="${task.taskResult.completed}"></td>
         </tr>
         </tbody>
     </table>

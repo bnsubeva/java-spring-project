@@ -17,7 +17,8 @@
         <tr>
             <th>Name</th>
             <th>Description</th>
-            <th>Sprint result</th>
+            <th>Sprint result description</th>
+            <th>Sprint result completed</th>
             <th>Tasks</th>
         </tr>
         </thead>
@@ -26,6 +27,7 @@
             <td th:text="${sprint.sprintName}"></td>
             <td th:text="${sprint.description}"></td>
             <td th:text="${sprint.sprintResult.description}"></td>
+            <td th:text="${sprint.sprintResult.completed}"></td>
             <td>
                 <ol th:each="task : ${sprint.tasks}">
                     <li th:text="${task.taskName}"></li>
